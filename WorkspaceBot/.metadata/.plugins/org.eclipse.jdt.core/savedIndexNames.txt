@@ -1,0 +1,22 @@
+INDEX VERSION 1.131+/home/tommal/Documenti/WorkspaceBot/.metadata/.plugins/org.eclipse.jdt.core
+528217163.index
+4275583705.index
+2345741353.index
+624027372.index
+3908966680.index
+3045409946.index
+3904130543.index
+1883465234.index
+3583031408.index
+3435234828.index
+1230595275.index
+4196756673.index
+1790547918.index
+1072316811.index
+3570883900.index
+1733616916.index
+2311435254.index
+1856221.index
+4093762740.index
+3795944265.index
+746976336.index
