@@ -150,12 +150,13 @@ public class Queries {
 		return usersId;
 	}
 
-	public static Abilitazione getSingleAbilitazione(Long id) {
+	public static Abilitazione getSingleAbilitazione(Long id, int linkId) {
 
 		try {
 			final Connection c = PostgreSQLJDBC.getConnectionDb();
 			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery(" SELECT *\n" + "		FROM public.abilitazione where userid= " + id);
+			ResultSet rs = stmt.executeQuery(" SELECT *\n" + "		FROM public.abilitazione where userid= " + id
+					+ " AND link=" + linkId);
 			while (rs.next()) {
 				return new Abilitazione(rs.getLong(1), rs.getLong(2), rs.getBoolean(3));
 			}
@@ -312,6 +313,33 @@ public class Queries {
 		}
 
 		return links;
+	}
+
+	/**
+	 * Ritorna un singolo Link data la sua descrizine
+	 * 
+	 * @param descrizione
+	 * @return
+	 */
+	public static Links getSingleLink(String descrizione) {
+
+		try {
+			final Connection c = PostgreSQLJDBC.getConnectionDb();
+			stmt = c.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT *\n" + "		FROM public.links\n"
+					+ "		where descrizione = '" + descrizione + "'");
+			while (rs.next()) {
+				return new Links(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+			}
+			rs.close();
+			stmt.close();
+			c.close();
+		} catch (Exception e) {
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+			System.exit(0);
+		}
+		System.out.println("SELECT SingleLink done successfully");
+		return null;
 	}
 
 	/**

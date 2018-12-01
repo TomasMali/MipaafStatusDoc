@@ -1,0 +1,99 @@
+package Jsoup;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Date;
+
+public class Query {
+
+	public static String ultimaModificaRegoleTechnicheWebServices = "Fri Nov 23 14:34:18 CET 2018";
+	public static String ultimaModificaCodificheRegistriVitivinicoli = "Fri, 30 Dec 2016 13:50:24 GMT";
+
+	public static final String tecnicheWebService = "https://www.sian.it/public/mipaaf/WS%20MVV-E%20vers%201.7.zip";
+	public static final String codificheRegistriVitivinicoli = "https://www.sian.it/public/mipaaf/Modalita_registro_vitivinicolo_v4%20(S-MIP-MRGA-K3-15002).pdf";
+
+	
+	
+	
+	
+	
+	/**
+	 * Decide qual'è il link da far partire il thread
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public static String copyURLToFile(String url_) {
+
+		switch (url_) {
+		case tecnicheWebService:
+			return TecnicheWebService();
+		case codificheRegistriVitivinicoli:
+			return CodificheRegistriVitivinicoli();
+		default:
+			break;
+		}
+		return "URL del sito non Esistente! *Non dovrebbe verificarsi*";
+
+	}
+
+	/**
+	 * Effettua una connessione al server della pagina web per controllare lo stato dell'ultima modifica del link
+	 * TecnicheWebService
+	 * 
+	 * @return
+	 */
+	public static String TecnicheWebService() {
+		try {
+
+			String link = "https://www.sian.it/portale-mipaaf/servizio?sid=2166";
+			URL url_ = new URL(link);
+			HttpURLConnection http = (HttpURLConnection) url_.openConnection();
+			int statusCode = http.getResponseCode();
+
+			if (statusCode == 404)
+				return "404";
+
+			URL url = new URL(tecnicheWebService);
+			System.out.println("TEST : " + new Date(url.openConnection().getLastModified()).toString());
+			@SuppressWarnings("unused")
+			InputStream input = url.openStream();
+			if (ultimaModificaRegoleTechnicheWebServices.equals(new Date(url.openConnection().getLastModified())
+					.toString())) {
+				return "Non ci sono Aggiornamenti dal sito di MIPAAF";
+			} else
+				return "Attenzione ci sono aggiornamenti dal sito di MIPAAF";
+
+		} catch (IOException ioEx) {
+			return "404";
+		}
+	}
+
+	/**
+	 * Effettua una connessione al server della pagina web per controllare lo stato dell'ultima modifica del link
+	 * CodificheRegistriVitivinicoli
+	 * 
+	 * @return
+	 */
+	public static String CodificheRegistriVitivinicoli() {
+		try {
+			URL url = new URL(codificheRegistriVitivinicoli);
+			System.out.println("TEST : " + new Date(url.openConnection().getLastModified()).toString());
+
+			@SuppressWarnings("unused")
+			InputStream input = url.openStream();
+
+			if (ultimaModificaRegoleTechnicheWebServices.equals(new Date(url.openConnection().getLastModified())
+					.toString())) {
+				return "Non ci sono Aggiornamenti dal sito di MIPAAF";
+			} else
+				throw new IOException();
+
+		} catch (IOException ioEx) {
+			return "Attenzione ci sono aggiornamenti dal sito di MIPAAF";
+		}
+	}
+
+}

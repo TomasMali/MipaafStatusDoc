@@ -2,7 +2,6 @@ package DAO;
 
 import java.io.IOException;
 import java.net.URL;
-import java.net.URLConnection;
 
 public class Tests {
 
@@ -19,10 +18,12 @@ public class Tests {
 		URL url = new URL(
 				"https://www.sian.it/public/mipaaf/Modalita_registro_vitivinicolo_v4%20(S-MIP-MRGA-K3-15002).pdf");
 
-		System.out.println("URL:- " + url);
-		URLConnection connection = url.openConnection();
+		// System.out.println("URL:- " + url);
+		// URLConnection connection = url.openConnection();
+		//
+		// System.out.println(connection.getHeaderField("Last-Modified"));
 
-		System.out.println(connection.getHeaderField("Last-Modified"));
+		System.out.println(Queries.getSingleLink("Mipaaf Codifiche Registri Vitivinicoli"));
 
 		// List<Abilitazione> users = Queries.GetUserIdWithProjectAndDescription("Sian", "SianConnect");
 		//

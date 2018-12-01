@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.net.HttpURLConnection"/>
+<fullyQualifiedTypeName name="DAO.User"/>
+<fullyQualifiedTypeName name="java.net.URLConnection"/>
+<fullyQualifiedTypeName name="DAO.Links"/>
+<fullyQualifiedTypeName name="DAO.Queries"/>
+<fullyQualifiedTypeName name="com.sun.research.ws.wadl.Link"/>
+</qualifiedTypeNameHistroy>
