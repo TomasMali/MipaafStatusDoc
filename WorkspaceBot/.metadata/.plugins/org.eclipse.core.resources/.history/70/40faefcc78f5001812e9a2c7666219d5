@@ -1,0 +1,34 @@
+package Tests;
+
+import java.io.IOException;
+
+import ConnectionDB.Queries;
+import DAO.UserAdmin;
+
+public class Tests {
+
+	public static void main(String[] args) throws IOException {
+
+		Queries.setFirstTimeUserAdminToTrue(new UserAdmin((Long) 888888888888, "ereererereerere", true));
+
+		// List<Abilitazione> users = Queries.GetUserIdWithProjectAndDescription("Sian", "SianConnect");
+		//
+		// Queries.UpdateTimestampLinks(1, new Date(System.currentTimeMillis()).toString());
+		//
+		// System.out.println(new Date(System.currentTimeMillis()).toString());
+		// System.out.println(users);
+
+		// String time = new Date(System.currentTimeMillis()).toString();
+		// Queries.InsertUser(new User((long) 99999949, "Test", "Test", time));
+
+		// System.out.println(LocalDateTime.now());
+
+		// System.out.println("La Lista è: " + Queries.getAllLinkDescription());
+
+		// boolean b = Queries.getAbilitazione(new Abilitazione((long) 145645559, (long) 1, false));
+
+		// System.out.println(b);
+
+	}
+
+}

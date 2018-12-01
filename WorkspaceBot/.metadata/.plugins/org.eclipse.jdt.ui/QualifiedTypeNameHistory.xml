@@ -7,4 +7,10 @@
 <fullyQualifiedTypeName name="DAO.Links"/>
 <fullyQualifiedTypeName name="DAO.Queries"/>
 <fullyQualifiedTypeName name="com.sun.research.ws.wadl.Link"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="DAO.UserAdmin"/>
+<fullyQualifiedTypeName name="CallMatches.CommandsMatches"/>
+<fullyQualifiedTypeName name="Schedulers.Scheduler"/>
+<fullyQualifiedTypeName name="ConnectionDB.Queries"/>
+<fullyQualifiedTypeName name="org.apache.commons.logging.impl.ServletContextCleaner"/>
 </qualifiedTypeNameHistroy>
