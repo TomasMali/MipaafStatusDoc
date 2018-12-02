@@ -74,7 +74,7 @@ public class CommandsMatches {
 	 */
 	public static void createInlineKeyboardLinks(Commands sc, Update update) {
 		Long chat_id = update.getMessage().getChatId();
-		List<Links> links = Queries.getAllLinks();
+		List<Links> links = Queries.getAllMyAvalableLinks(chat_id);
 		if (!links.isEmpty()) {
 			InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
 			List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
@@ -97,7 +97,7 @@ public class CommandsMatches {
 			}
 		} else {
 			try {
-				sc.execute(new SendMessage().setChatId(chat_id).setText("Non esistono ancora siti da mostrare!"));
+				sc.execute(new SendMessage().setChatId(chat_id).setText("Non esistono più siti da mostrare!"));
 			} catch (TelegramApiException e) {
 				e.printStackTrace();
 			}
@@ -155,7 +155,7 @@ public class CommandsMatches {
 			} else
 				sc.execute(new EditMessageText().setChatId(chat_id).setMessageId((int) message_id).setText(
 						"Sei già abilitato per ricevere notifiche da '" + update.getCallbackQuery().getData()
-								+ "'. Ora prenditi una camomilla e prega che il sito non venga aggiornato ;)"));
+								+ " . Scegli un altro link clickando /Start ."));
 		} catch (TelegramApiException e) {
 			e.printStackTrace();
 		}

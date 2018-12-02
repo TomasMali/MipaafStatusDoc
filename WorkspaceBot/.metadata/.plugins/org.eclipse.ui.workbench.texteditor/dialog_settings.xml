@@ -16,9 +16,9 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="338" key="DIALOG_WIDTH"/>
-		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="441" key="DIALOG_HEIGHT"/>
+		<item value="290" key="DIALOG_WIDTH"/>
+		<item value="1|.Helvetica Neue DeskInterface|11.0|0|COCOA|1|.HelveticaNeueDeskInterface-Regular" key="DIALOG_FONT_NAME"/>
+		<item value="409" key="DIALOG_HEIGHT"/>
 		<item value="1021" key="DIALOG_X_ORIGIN"/>
 		<item value="335" key="DIALOG_Y_ORIGIN"/>
 	</section>

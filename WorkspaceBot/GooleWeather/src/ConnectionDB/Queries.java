@@ -325,6 +325,31 @@ public class Queries {
 		return links;
 	}
 
+	public static List<Links> getAllMyAvalableLinks(Long idTelegram) {
+
+		List<Links> links = new ArrayList<>();
+
+		try {
+			final Connection c = PostgreSQLJDBC.getConnectionDb();
+			stmt = c.createStatement();
+			ResultSet rs = stmt.executeQuery(
+					"select * from links where links.id NOT IN (SELECT links.id from links  join public.abilitazione on links.id = abilitazione.link and abilitazione.userid ="
+							+ idTelegram + ")");
+
+			while (rs.next())
+				links.add(new Links(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
+			rs.close();
+			stmt.close();
+			c.close();
+		} catch (Exception e) {
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+			System.exit(0);
+		}
+
+		return links;
+
+	}
+
 	/**
 	 * Ritorna un singolo Link data la sua descrizine
 	 * 
