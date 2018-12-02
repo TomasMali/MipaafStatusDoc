@@ -67,7 +67,7 @@ public class CommandsMatches {
 	}
 
 	/**
-	 * Mostra la lista dei sita da controllare
+	 * Mostra la lista dei siti da controllare
 	 * 
 	 * @param sc
 	 * @param update
@@ -105,6 +105,12 @@ public class CommandsMatches {
 
 	}
 
+	/**
+	 * Metodo che notifica solo l'amministratore che un sito è stato modificato con errore 404
+	 * 
+	 * @param sc
+	 * @param descriptionLink
+	 */
 	public static void createInlineKeyboardForUserSendingMessage(Commands sc, String descriptionLink) {
 		Long chat_id = mio;
 		Links link = Queries.getSingleLink(descriptionLink);
@@ -129,6 +135,13 @@ public class CommandsMatches {
 
 	}
 
+	/**
+	 * Metodo che notifica che sei abilitato correttamente per il link scelto
+	 * 
+	 * @param sc
+	 * @param update
+	 * @param idLink
+	 */
 	public static void createAbilitazione(Commands sc, Update update, Long idLink) {
 		Abilitazione abilitazione = new Abilitazione(update.getCallbackQuery().getMessage().getChatId(), idLink, false);
 		long message_id = update.getCallbackQuery().getMessage().getMessageId();

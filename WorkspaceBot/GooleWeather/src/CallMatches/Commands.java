@@ -59,9 +59,6 @@ public class Commands extends TelegramLongPollingBot {
 				case "/START":
 					CommandsMatches.createInlineKeyboardLinks(this, update);
 					break;
-				// case "Mipaaf Tecniche Web Service":
-				// CommandsMatches.createAbilitazione(this, update, Queries.getLinkId("Mipaaf Tecniche Web Service"));
-				// break;
 
 				default:
 					CommandsMatches.AllOtherMessages(this, update);
@@ -81,22 +78,28 @@ public class Commands extends TelegramLongPollingBot {
 
 	public void HasCallbackQuery(Update update) {
 
-		switch (update.getCallbackQuery().getData()) {
-
-		case "Attiva_Mipaaf Tecniche Web Service":
-		case "Attiva_Mipaaf Codifiche Registri Vitivinicoli":
+		if (update.getCallbackQuery().getData().contains("Attiva_"))
 			Scheduler.broadcast(update.getCallbackQuery().getData().substring(7));
-			break;
-
-		case "Mipaaf Tecniche Web Service":
-		case "Mipaaf Codifiche Registri Vitivinicoli":
+		else
+			// keyboard per abilitarsi nei links
 			CommandsMatches.createAbilitazione(this, update, Queries.getLinkId(update.getCallbackQuery().getData()));
-			break;
 
-		default:
-			CommandsMatches.AllOtherMessages(this, update);
-			break;
-		}
+		// switch (update.getCallbackQuery().getData()) {
+		//
+		// case "Attiva_Mipaaf Tecniche Web Service":
+		// case "Attiva_Mipaaf Codifiche Registri Vitivinicoli":
+		// Scheduler.broadcast(update.getCallbackQuery().getData().substring(7));
+		// break;
+		//
+		// case "Mipaaf Tecniche Web Service":
+		// case "Mipaaf Codifiche Registri Vitivinicoli":
+		// CommandsMatches.createAbilitazione(this, update, Queries.getLinkId(update.getCallbackQuery().getData()));
+		// break;
+		//
+		// default:
+		// CommandsMatches.AllOtherMessages(this, update);
+		// break;
+		// }
 
 	}
 
