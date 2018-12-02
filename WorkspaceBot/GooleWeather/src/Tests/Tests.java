@@ -1,23 +1,20 @@
 package Tests;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Date;
+
+import ConnectionDB.Queries;
+import DAO.Links;
 
 public class Tests {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException { // Fri Nov 23 14:34:18 CET 2018
 
-		String usl = "https://www.sian.it/public/mipaaf/Codifiche_registro_vitivinicolo_v7%20(S-MIP-MRGA-K3-15004).pdf";
-		String due = "https://www.sian.it/public/mipaaf/WS%20MVV-E%20vers%201.7.zip";
+		Links link = new Links(1, "Mipaaf Tecniche Web Service",
+				"https://www.sian.it/public/mipaaf/WS%20MVV-E%20vers%201.7.zip", "Fri Nov 23 14:34:18 CET 2018",
+				"Sian");
+		Queries.updateLinkTimestamp(link);
 
-		URL url_1 = new URL(due);
-		HttpURLConnection http_1 = (HttpURLConnection) url_1.openConnection();
-		int statusCode = http_1.getResponseCode();
-		String dataModifica = new Date(url_1.openConnection().getLastModified()).toString();
-
-		System.out.println("");
+		System.out.println("Ok");
 
 	}
 

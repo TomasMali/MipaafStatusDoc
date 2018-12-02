@@ -4,13 +4,14 @@
 <fullyQualifiedTypeName name="java.net.HttpURLConnection"/>
 <fullyQualifiedTypeName name="DAO.User"/>
 <fullyQualifiedTypeName name="java.net.URLConnection"/>
-<fullyQualifiedTypeName name="DAO.Links"/>
 <fullyQualifiedTypeName name="DAO.Queries"/>
 <fullyQualifiedTypeName name="com.sun.research.ws.wadl.Link"/>
 <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 <fullyQualifiedTypeName name="DAO.UserAdmin"/>
 <fullyQualifiedTypeName name="CallMatches.CommandsMatches"/>
 <fullyQualifiedTypeName name="Schedulers.Scheduler"/>
-<fullyQualifiedTypeName name="ConnectionDB.Queries"/>
 <fullyQualifiedTypeName name="org.apache.commons.logging.impl.ServletContextCleaner"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="DAO.Links"/>
+<fullyQualifiedTypeName name="ConnectionDB.Queries"/>
 </qualifiedTypeNameHistroy>

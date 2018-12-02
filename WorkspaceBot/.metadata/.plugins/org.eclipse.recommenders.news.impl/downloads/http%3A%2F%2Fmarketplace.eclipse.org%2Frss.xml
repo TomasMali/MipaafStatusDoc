@@ -6,6 +6,60 @@
     <language>en</language>
      <atom:link href="http://marketplace.eclipse.org/rss.xml" rel="self" type="application/rss+xml" />
       <item>
+    <title>PostScript Development Tools</title>
+    <link>http://marketplace.eclipse.org/content/postscript-development-tools</link>
+    <description>&lt;div class=&quot;field field-name-field-resource-image field-type-image field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;img typeof=&quot;foaf:Image&quot; class=&quot;img-responsive&quot; src=&quot;http://marketplace.eclipse.org/sites/default/files/book-icon-256.png&quot; width=&quot;80&quot; height=&quot;80&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-shared-date-updated field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Date Updated:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;Sat, 2018-12-01 19:25&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;a href=&quot;/search/content/%22Thomas%20Fritsch%22&quot;&gt;Thomas Fritsch&lt;/a&gt;&lt;div class=&quot;field field-name-shared-date-created field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Date Created:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;Sun, 2016-11-13 08:57&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-shared-submitted-by field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Submitted by:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;a href=&quot;/user/tfritschk6n/listings&quot; title=&quot;Thomas Fritsch&quot;&gt;Thomas Fritsch&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot; property=&quot;content:encoded&quot;&gt;&lt;p&gt;PSDT is a PostScript IDE for Eclipse, including editor, debugger and documentation. It cooperates with the Ghostscript interpreter in a platform-independent way.&lt;/p&gt;
+&lt;p&gt;Features&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Syntax Highlighting&lt;/li&gt;
+&lt;li&gt;Syntax Validation&lt;/li&gt;
+&lt;li&gt;Content Assist&lt;/li&gt;
+&lt;li&gt;Documentation Hovers&lt;/li&gt;
+&lt;li&gt;Run/Debug with Ghostscript&lt;/li&gt;
+&lt;li&gt;Breakpoints&lt;/li&gt;
+&lt;li&gt;Watch Points&lt;/li&gt;
+&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt; &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description>
+     <pubDate>Sun, 13 Nov 2016 13:57:52 +0000</pubDate>
+ <dc:creator>tfritschk6n</dc:creator>
+ <guid isPermaLink="false">3162861 at http://marketplace.eclipse.org</guid>
+ <comments>http://marketplace.eclipse.org/content/postscript-development-tools#comments</comments>
+  </item>
+  <item>
+    <title>Yaml Editor</title>
+    <link>http://marketplace.eclipse.org/content/yaml-editor</link>
+    <description>&lt;div class=&quot;field field-name-field-resource-image field-type-image field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;img typeof=&quot;foaf:Image&quot; class=&quot;img-responsive&quot; src=&quot;http://marketplace.eclipse.org/sites/default/files/yaml-editor-logo.png&quot; width=&quot;110&quot; height=&quot;80&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-shared-date-updated field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Date Updated:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;Sat, 2018-12-01 17:32&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;a href=&quot;/search/content/%22Albert%20Tregnaghi%22&quot;&gt;Albert Tregnaghi&lt;/a&gt;&lt;div class=&quot;field field-name-shared-date-created field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Date Created:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;Thu, 2018-05-24 09:58&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-shared-submitted-by field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Submitted by:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;a href=&quot;/user/atregnaghi/listings&quot; title=&quot;Albert Tregnaghi&quot;&gt;Albert Tregnaghi&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot; property=&quot;content:encoded&quot;&gt;&lt;p&gt;Just a simple YAML editor. &lt;/p&gt;
+&lt;p&gt;Features:&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Fast and small&lt;/li&gt;
+&lt;li&gt;Vertical Ruler which can be moved (F3)&lt;/li&gt;
+&lt;li&gt;Simple code completion for existing words&lt;/li&gt;
+&lt;li&gt;Replacing always tab keypress by spaces (default is 3, but configurable)&lt;/li&gt;
+&lt;li&gt;Outline + Quickoutline&lt;/li&gt;
+&lt;li&gt;Task support (TODO, FIXME, custom)&lt;/li&gt;
+&lt;li&gt;Folding&lt;/li&gt;
+&lt;li&gt;Validation
+&lt;ul&gt;&lt;li&gt;When?
+&lt;ul&gt;&lt;li&gt;On start&lt;/li&gt;
+&lt;li&gt;On save&lt;/li&gt;
+&lt;li&gt;Manual validation&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;What ?
+&lt;ul&gt;&lt;li&gt;Parser errors&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Syntaxhighlighting, colors can be customized, defaults for dark themes exist&lt;/li&gt;
+&lt;li&gt;Comment toggling (CTRL + 7)&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt; &lt;/p&gt;
+&lt;h3&gt;Additional Links&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;https://github.com/de-jcup/eclipse-yaml-editor/issues&quot; rel=&quot;nofollow&quot;&gt;Issue tracker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/de-jcup/eclipse-yaml-editor/wiki&quot; rel=&quot;nofollow&quot;&gt;Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/de-jcup/eclipse-yaml-editor/releases&quot; rel=&quot;nofollow&quot;&gt;Release history&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description>
+     <pubDate>Thu, 24 May 2018 13:58:51 +0000</pubDate>
+ <dc:creator>atregnaghi</dc:creator>
+ <guid isPermaLink="false">4101183 at http://marketplace.eclipse.org</guid>
+ <comments>http://marketplace.eclipse.org/content/yaml-editor#comments</comments>
+  </item>
+  <item>
     <title>Spring Tools 4 (aka Spring Tool Suite 4)</title>
     <link>http://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4</link>
     <description>&lt;div class=&quot;field field-name-field-resource-image field-type-image field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;img typeof=&quot;foaf:Image&quot; class=&quot;img-responsive&quot; src=&quot;http://marketplace.eclipse.org/sites/default/files/sts4-marketplace-icon.png&quot; width=&quot;80&quot; height=&quot;80&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-shared-date-updated field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Date Updated:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;Fri, 2018-11-30 19:54&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;a href=&quot;/search/content/%22Pivotal%22&quot;&gt;Pivotal&lt;/a&gt;&lt;div class=&quot;field field-name-shared-date-created field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Date Created:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;Fri, 2014-07-11 12:41&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-shared-submitted-by field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Submitted by:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;a href=&quot;/user/mlippert/listings&quot; title=&quot;Martin Lippert&quot;&gt;Martin Lippert&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot; property=&quot;content:encoded&quot;&gt;&lt;h2&gt;Spring Tools 4&lt;/h2&gt;
@@ -119,51 +173,6 @@ $app-&amp;gt;make(&#039;token&#039;)-&amp;gt;|&lt;/pre&gt;&lt;p&gt;the IDE will 
  <dc:creator>mlocati</dc:creator>
  <guid isPermaLink="false">4392617 at http://marketplace.eclipse.org</guid>
  <comments>http://marketplace.eclipse.org/content/concrete5-plugin#comments</comments>
-  </item>
-  <item>
-    <title>Sirius</title>
-    <link>http://marketplace.eclipse.org/content/sirius</link>
-    <description>&lt;div class=&quot;field field-name-field-resource-image field-type-image field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;img typeof=&quot;foaf:Image&quot; class=&quot;img-responsive&quot; src=&quot;http://marketplace.eclipse.org/sites/default/files/icone_Sirius.png&quot; width=&quot;84&quot; height=&quot;80&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-shared-date-updated field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Date Updated:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;Thu, 2018-11-29 05:44&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;a href=&quot;/search/content/%22Obeo%22&quot;&gt;Obeo&lt;/a&gt;&lt;div class=&quot;field field-name-shared-date-created field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Date Created:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;Wed, 2013-11-20 04:56&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-shared-submitted-by field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Submitted by:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;a href=&quot;/user/omisingnameuel/listings&quot; title=&quot;Obeo Products&quot;&gt;Obeo Products&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot; property=&quot;content:encoded&quot;&gt;&lt;p&gt;Sirius is an Eclipse project (&lt;a href=&quot;http://www.eclipse.org/sirius&quot; rel=&quot;nofollow&quot;&gt;http://www.eclipse.org/sirius&lt;/a&gt;) that allows you to easily create your own graphical modeling tools. It leverages the Eclipse modeling technologies, including EMF for the model management and GMF for the graphical representation. Based on a viewpoint approach, Sirius makes it possible to equip teams who have to deal with complex architectures on specific domains. It is particularly adapted for users that have defined a DSL (Domain Specific Language) and need graphical representations to better elaborate and analyze a system and improve the communication with other team members, partners or customers.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description>
-     <pubDate>Wed, 20 Nov 2013 09:56:47 +0000</pubDate>
- <dc:creator>omisingnameuel</dc:creator>
- <guid isPermaLink="false">1318261 at http://marketplace.eclipse.org</guid>
- <comments>http://marketplace.eclipse.org/content/sirius#comments</comments>
-  </item>
-  <item>
-    <title>Cucumber Eclipse Plugin</title>
-    <link>http://marketplace.eclipse.org/content/cucumber-eclipse-plugin</link>
-    <description>&lt;div class=&quot;field field-name-field-resource-image field-type-image field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;img typeof=&quot;foaf:Image&quot; class=&quot;img-responsive&quot; src=&quot;http://marketplace.eclipse.org/sites/default/files/cucumber_0.png&quot; width=&quot;110&quot; height=&quot;55&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-shared-date-updated field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Date Updated:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;Thu, 2018-11-29 05:16&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;a href=&quot;/search/content/%22Cucumber%22&quot;&gt;Cucumber&lt;/a&gt;&lt;div class=&quot;field field-name-shared-date-created field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Date Created:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;Fri, 2017-11-10 06:08&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-shared-submitted-by field-type-text field-label-inline clearfix&quot;&gt;&lt;div class=&quot;field-label&quot;&gt;Submitted by:&amp;nbsp;&lt;/div&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;a href=&quot;/user/gpandam3m/listings&quot; title=&quot;Girija Prasad Panda&quot;&gt;Girija Prasad Panda&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot; property=&quot;content:encoded&quot;&gt;&lt;h4&gt;An eclipse plugin for &lt;a href=&quot;https://cucumber.io/&quot; rel=&quot;nofollow&quot;&gt; Cucumber &lt;/a&gt;.&lt;/h4&gt;
-&lt;h3&gt;New Feature list in the version available from the update site:&lt;/h3&gt;
-&lt;ul&gt;&lt;li&gt;
-&lt;h4&gt;&lt;a href=&quot;https://github.com/cucumber/cucumber-eclipse/wiki/Lambda-Expression-support-for-Cucumber-Java8&quot; rel=&quot;nofollow&quot;&gt;Lambda Expression support for Cucumber-Java8 &lt;/a&gt;&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h4&gt;&lt;a href=&quot;https://github.com/cucumber/cucumber-eclipse/wiki/Content-Assistance-for-feature-file&quot; rel=&quot;nofollow&quot;&gt;Content Assistance for feature file &lt;/a&gt;&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h4&gt;&lt;a href=&quot;https://github.com/cucumber/cucumber-eclipse/wiki/New-Step-Definition-File-Wizard&quot; rel=&quot;nofollow&quot;&gt;New Step Definition File Wizard&lt;/a&gt;&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h4&gt;&lt;a href=&quot;https://github.com/cucumber/cucumber-eclipse/wiki/Auto-Generation-of-Sample-Feature-Definition-Template&quot; rel=&quot;nofollow&quot;&gt;Auto Generation of Feature Definition&lt;/a&gt;&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h4&gt;&lt;a href=&quot;https://github.com/cucumber/cucumber-eclipse/wiki/I18n-Syntax-highlighting&quot; rel=&quot;nofollow&quot;&gt;I18n Syntax highlighting&lt;/a&gt;&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h4&gt;&lt;a href=&quot;https://github.com/cucumber/cucumber-eclipse/wiki/Pretty-Formatting&quot; rel=&quot;nofollow&quot;&gt;Pretty Formatting&lt;/a&gt;&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h4&gt;&lt;a href=&quot;https://github.com/cucumber/cucumber-eclipse/wiki/Feature-Runner&quot; rel=&quot;nofollow&quot;&gt;Feature runner with formatters&lt;/a&gt;&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h4&gt;&lt;strong&gt;Click through from Step to Step Definition&lt;/strong&gt;. (Currently only works in English, and from pop up menu)&lt;/h4&gt;
-&lt;/li&gt;
-&lt;/ul&gt;&lt;h4&gt;Please head over to our &lt;a href=&quot;https://github.com/cucumber/cucumber-eclipse&quot; rel=&quot;nofollow&quot;&gt; Github Repository &lt;/a&gt; for more information.&lt;/h4&gt;
-&lt;h4&gt;Please consult our &lt;a href=&quot;https://github.com/cucumber/cucumber-eclipse/wiki&quot; rel=&quot;nofollow&quot;&gt; Plugin-Wiki &lt;/a&gt; for a full list for currently available features and screenshots.&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description>
-     <pubDate>Fri, 10 Nov 2017 11:08:15 +0000</pubDate>
- <dc:creator>gpandam3m</dc:creator>
- <guid isPermaLink="false">3759385 at http://marketplace.eclipse.org</guid>
- <comments>http://marketplace.eclipse.org/content/cucumber-eclipse-plugin#comments</comments>
   </item>
   </channel>
 </rss>

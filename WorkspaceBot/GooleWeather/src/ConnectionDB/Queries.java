@@ -353,6 +353,29 @@ public class Queries {
 	}
 
 	/**
+	 * Aggiorna il timestamp del link in questione
+	 * 
+	 * @param link
+	 */
+	public static void updateLinkTimestamp(Links link) {
+		final Connection c = PostgreSQLJDBC.getConnectionDb();
+		Statement stmt = null;
+		try {
+			stmt = c.createStatement();
+			String sql = "UPDATE public.links\n" + "SET descrizione= '" + link.getDescrizione() + "' , link= '" + link
+					.getLink() + "' , ultimamodifica= '" + link.getUltimamodifica() + "', progetto= '" + link
+							.getProgetto() + "'" + "  WHERE id=" + link.getId();
+			stmt.executeUpdate(sql);
+			stmt.close();
+			c.close();
+		} catch (Exception e) {
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+			System.exit(0);
+		}
+		System.out.println("Update Timestam Link done successfully");
+	}
+
+	/**
 	 * Ritorna il link data la descrizione
 	 * 
 	 * @param descrizioneLink
