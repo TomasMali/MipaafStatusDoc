@@ -15,4 +15,5 @@
 <fullyQualifiedTypeName name="DAO.Links"/>
 <fullyQualifiedTypeName name="java.util.concurrent.ScheduledExecutorService"/>
 <fullyQualifiedTypeName name="ConnectionDB.Queries"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>
