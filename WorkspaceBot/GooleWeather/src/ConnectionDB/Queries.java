@@ -21,34 +21,34 @@ public class Queries {
 	 * @param userId
 	 * @param link
 	 */
-	public static void threadStartedTrue(Long userId, Long link) {
-		// boolean started = false;
-
-		final Connection c = PostgreSQLJDBC.getConnectionDb();
-		Statement stmt = null;
-		try {
-			stmt = c.createStatement();
-			String sql = "UPDATE public.abilitazione\n" + "		SET started=true\n" + "		WHERE userid= " + userId
-					+ " AND link=" + link;
-			stmt.executeUpdate(sql);
-			stmt.close();
-			c.close();
-		} catch (Exception e) {
-			System.err.println(e.getClass().getName() + ": " + e.getMessage());
-			System.exit(0);
-		}
-		System.out.println("Update startedThread done successfully");
-
-		// return started;
-
-	}
+	// public static void threadStartedTrue(Long userId, Long link) {
+	// // boolean started = false;
+	//
+	// final Connection c = PostgreSQLJDBC.getConnectionDb();
+	// Statement stmt = null;
+	// try {
+	// stmt = c.createStatement();
+	// String sql = "UPDATE public.abilitazione\n" + " SET started=true\n" + " WHERE userid= " + userId
+	// + " AND link=" + link;
+	// stmt.executeUpdate(sql);
+	// stmt.close();
+	// c.close();
+	// } catch (Exception e) {
+	// System.err.println(e.getClass().getName() + ": " + e.getMessage());
+	// System.exit(0);
+	// }
+	// System.out.println("Update startedThread done successfully");
+	//
+	// // return started;
+	//
+	// }
 
 	/**
 	 * ritorna una lista di tutti gli utenti registrati
 	 * 
 	 * @return
 	 */
-	public static List<User> getUsers() {
+	public synchronized static List<User> getUsers() {
 		List<User> users = new ArrayList<>();
 		try {
 			final Connection c = PostgreSQLJDBC.getConnectionDb();
@@ -75,27 +75,27 @@ public class Queries {
 	 * @param id
 	 * @return
 	 */
-	public static User getSingleUser(Long id) {
-
-		try {
-			final Connection c = PostgreSQLJDBC.getConnectionDb();
-			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT *\n" + "		FROM public.users where userid= " + id);
-			while (rs.next()) {
-				return new User(rs.getLong("userid"), rs.getString("nome"), rs.getString("cognome"), rs.getString(
-						"inserimento"));
-			}
-			rs.close();
-			stmt.close();
-			c.close();
-		} catch (Exception e) {
-			System.err.println(e.getClass().getName() + ": " + e.getMessage());
-			System.exit(0);
-		}
-		System.out.println("Operation done successfully");
-		return null;
-
-	}
+	// public static User getSingleUser(Long id) {
+	//
+	// try {
+	// final Connection c = PostgreSQLJDBC.getConnectionDb();
+	// stmt = c.createStatement();
+	// ResultSet rs = stmt.executeQuery("SELECT *\n" + " FROM public.users where userid= " + id);
+	// while (rs.next()) {
+	// return new User(rs.getLong("userid"), rs.getString("nome"), rs.getString("cognome"), rs.getString(
+	// "inserimento"));
+	// }
+	// rs.close();
+	// stmt.close();
+	// c.close();
+	// } catch (Exception e) {
+	// System.err.println(e.getClass().getName() + ": " + e.getMessage());
+	// System.exit(0);
+	// }
+	// System.out.println("Operation done successfully");
+	// return null;
+	//
+	// }
 
 	/**
 	 * Dato userId controlla se l'utente è stato registrato
@@ -103,7 +103,7 @@ public class Queries {
 	 * @param userId
 	 * @return
 	 */
-	public static boolean userIdExsist(Long userId) {
+	public synchronized static boolean userIdExsist(Long userId) {
 		boolean trovato = false;
 		try {
 			final Connection c = PostgreSQLJDBC.getConnectionDb();
@@ -130,7 +130,8 @@ public class Queries {
 	 * @param descrizione
 	 * @return
 	 */
-	public static List<Abilitazione> GetUserIdWithProjectAndDescription(String progetto, String descrizione) {
+	public synchronized static List<Abilitazione> GetUserIdWithProjectAndDescription(String progetto,
+			String descrizione) {
 		List<Abilitazione> usersId = new ArrayList<>();
 		try {
 			final Connection c = PostgreSQLJDBC.getConnectionDb();
@@ -160,26 +161,26 @@ public class Queries {
 	 * @param linkId
 	 * @return
 	 */
-	public static Abilitazione getSingleAbilitazione(Long id, int linkId) {
-
-		try {
-			final Connection c = PostgreSQLJDBC.getConnectionDb();
-			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery(" SELECT *\n" + "		FROM public.abilitazione where userid= " + id
-					+ " AND link=" + linkId);
-			while (rs.next()) {
-				return new Abilitazione(rs.getLong(1), rs.getLong(2), rs.getBoolean(3));
-			}
-			rs.close();
-			stmt.close();
-			c.close();
-		} catch (Exception e) {
-			System.err.println(e.getClass().getName() + ": " + e.getMessage());
-			System.exit(0);
-		}
-		System.out.println("SELECT Abilitazione done successfully");
-		return null;
-	}
+	// public static Abilitazione getSingleAbilitazione(Long id, int linkId) {
+	//
+	// try {
+	// final Connection c = PostgreSQLJDBC.getConnectionDb();
+	// stmt = c.createStatement();
+	// ResultSet rs = stmt.executeQuery(" SELECT *\n" + " FROM public.abilitazione where userid= " + id
+	// + " AND link=" + linkId);
+	// while (rs.next()) {
+	// return new Abilitazione(rs.getLong(1), rs.getLong(2), rs.getBoolean(3));
+	// }
+	// rs.close();
+	// stmt.close();
+	// c.close();
+	// } catch (Exception e) {
+	// System.err.println(e.getClass().getName() + ": " + e.getMessage());
+	// System.exit(0);
+	// }
+	// System.out.println("SELECT Abilitazione done successfully");
+	// return null;
+	// }
 
 	/**
 	 * aggiorna il timestamp di ultima modifica al link i
@@ -187,29 +188,29 @@ public class Queries {
 	 * @param i
 	 * @param date
 	 */
-	public static void UpdateTimestampLinks(int i, String date) {
-		final Connection c = PostgreSQLJDBC.getConnectionDb();
-		Statement stmt = null;
-		try {
-
-			stmt = c.createStatement();
-			String sql = "UPDATE public.links SET ultimamodifica = '" + date + "' WHERE id= " + i;
-			stmt.executeUpdate(sql);
-			stmt.close();
-			c.close();
-		} catch (Exception e) {
-			System.err.println(e.getClass().getName() + ": " + e.getMessage());
-			System.exit(0);
-		}
-		System.out.println("Update done successfully");
-	}
+	// public static void UpdateTimestampLinks(int i, String date) {
+	// final Connection c = PostgreSQLJDBC.getConnectionDb();
+	// Statement stmt = null;
+	// try {
+	//
+	// stmt = c.createStatement();
+	// String sql = "UPDATE public.links SET ultimamodifica = '" + date + "' WHERE id= " + i;
+	// stmt.executeUpdate(sql);
+	// stmt.close();
+	// c.close();
+	// } catch (Exception e) {
+	// System.err.println(e.getClass().getName() + ": " + e.getMessage());
+	// System.exit(0);
+	// }
+	// System.out.println("Update done successfully");
+	// }
 
 	/**
 	 * Inserisce uno nuovo user
 	 * 
 	 * @param user
 	 */
-	public static void InsertUser(User user) {
+	public synchronized static void InsertUser(User user) {
 		final Connection c = PostgreSQLJDBC.getConnectionDb();
 		Statement stmt = null;
 		try {
@@ -231,7 +232,7 @@ public class Queries {
 	 * 
 	 * @param abilitazione
 	 */
-	public static void InsertAbilitazione(Abilitazione abilitazione) {
+	public synchronized static void InsertAbilitazione(Abilitazione abilitazione) {
 		final Connection c = PostgreSQLJDBC.getConnectionDb();
 		Statement stmt = null;
 		try {
@@ -254,7 +255,7 @@ public class Queries {
 	 * @param abilitazione
 	 * @return
 	 */
-	public static boolean CheckIfExsistLink(Abilitazione abilitazione) {
+	public synchronized static boolean CheckIfExsistLink(Abilitazione abilitazione) {
 		boolean exists = false;
 		try {
 			final Connection c = PostgreSQLJDBC.getConnectionDb();
@@ -279,33 +280,33 @@ public class Queries {
 	 * @param abilitazione
 	 * @return
 	 */
-	public static boolean getAbilitazioneStartedValue(Abilitazione abilitazione) {
-		boolean started = false;
-		try {
-			final Connection c = PostgreSQLJDBC.getConnectionDb();
-			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT started\n" + "		FROM public.abilitazione where userid= "
-					+ abilitazione.getUserid() + " and link=" + abilitazione.getLink());
-			while (rs.next())
-				started = rs.getBoolean("started");
-			rs.close();
-			stmt.close();
-			c.close();
-		} catch (Exception e) {
-			System.err.println(e.getClass().getName() + ": " + e.getMessage());
-			System.exit(0);
-		}
-
-		return started;
-
-	}
+	// public static boolean getAbilitazioneStartedValue(Abilitazione abilitazione) {
+	// boolean started = false;
+	// try {
+	// final Connection c = PostgreSQLJDBC.getConnectionDb();
+	// stmt = c.createStatement();
+	// ResultSet rs = stmt.executeQuery("SELECT started\n" + " FROM public.abilitazione where userid= "
+	// + abilitazione.getUserid() + " and link=" + abilitazione.getLink());
+	// while (rs.next())
+	// started = rs.getBoolean("started");
+	// rs.close();
+	// stmt.close();
+	// c.close();
+	// } catch (Exception e) {
+	// System.err.println(e.getClass().getName() + ": " + e.getMessage());
+	// System.exit(0);
+	// }
+	//
+	// return started;
+	//
+	// }
 
 	/**
 	 * Ritorna tutti i links disponibili
 	 * 
 	 * @return
 	 */
-	public static List<Links> getAllLinks() {
+	public synchronized static List<Links> getAllLinks() {
 		List<Links> links = new ArrayList<>();
 		try {
 			final Connection c = PostgreSQLJDBC.getConnectionDb();
@@ -325,7 +326,7 @@ public class Queries {
 		return links;
 	}
 
-	public static List<Links> getAllMyAvalableLinks(Long idTelegram) {
+	public synchronized static List<Links> getAllMyAvalableLinks(Long idTelegram) {
 
 		List<Links> links = new ArrayList<>();
 
@@ -356,7 +357,7 @@ public class Queries {
 	 * @param descrizione
 	 * @return
 	 */
-	public static Links getSingleLink(String descrizione) {
+	public synchronized static Links getSingleLink(String descrizione) {
 
 		try {
 			final Connection c = PostgreSQLJDBC.getConnectionDb();
@@ -382,7 +383,7 @@ public class Queries {
 	 * 
 	 * @param link
 	 */
-	public static void updateLinkTimestamp(Links link) {
+	public synchronized static void updateLinkTimestamp(Links link) {
 		final Connection c = PostgreSQLJDBC.getConnectionDb();
 		Statement stmt = null;
 		try {
@@ -406,7 +407,7 @@ public class Queries {
 	 * @param descrizioneLink
 	 * @return
 	 */
-	public static Long getLinkId(String descrizioneLink) {
+	public synchronized static Long getLinkId(String descrizioneLink) {
 		Long res = null;
 		try {
 			final Connection c = PostgreSQLJDBC.getConnectionDb();
@@ -431,7 +432,7 @@ public class Queries {
 	 * 
 	 * @param userAdmin
 	 */
-	public static void deleteTableUserAdmin() {
+	public synchronized static void deleteTableUserAdmin() {
 		final Connection c = PostgreSQLJDBC.getConnectionDb();
 		Statement stmt = null;
 		try {
@@ -453,7 +454,7 @@ public class Queries {
 	 * 
 	 * @param adminId
 	 */
-	public static void registerAdmin(Long adminId) {
+	public synchronized static void registerAdmin(Long adminId) {
 
 		StringBuilder sql = new StringBuilder();
 		final Connection c = PostgreSQLJDBC.getConnectionDb();
@@ -492,28 +493,28 @@ public class Queries {
 	 * @param link
 	 * @return
 	 */
-	public static boolean checkIfExistLinkInUserAdmin(String link, Long idUserAdmin) {
-		boolean esiste = false;
-
-		try {
-			final Connection c = PostgreSQLJDBC.getConnectionDb();
-			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery(" SELECT *\n" + "		FROM public.adminuser where  link= '" + link
-					+ "' AND idtelegram=" + idUserAdmin);
-			while (rs.next()) {
-				esiste = true;
-			}
-			rs.close();
-			stmt.close();
-			c.close();
-		} catch (Exception e) {
-			System.err.println(e.getClass().getName() + ": " + e.getMessage());
-			System.exit(0);
-		}
-		System.out.println("SELECT checkIfExistLinkInUserAdmin done successfully");
-
-		return esiste;
-	}
+	// public static boolean checkIfExistLinkInUserAdmin(String link, Long idUserAdmin) {
+	// boolean esiste = false;
+	//
+	// try {
+	// final Connection c = PostgreSQLJDBC.getConnectionDb();
+	// stmt = c.createStatement();
+	// ResultSet rs = stmt.executeQuery(" SELECT *\n" + " FROM public.adminuser where link= '" + link
+	// + "' AND idtelegram=" + idUserAdmin);
+	// while (rs.next()) {
+	// esiste = true;
+	// }
+	// rs.close();
+	// stmt.close();
+	// c.close();
+	// } catch (Exception e) {
+	// System.err.println(e.getClass().getName() + ": " + e.getMessage());
+	// System.exit(0);
+	// }
+	// System.out.println("SELECT checkIfExistLinkInUserAdmin done successfully");
+	//
+	// return esiste;
+	// }
 
 	/**
 	 * Ritorna un singolo UserAdmin dato il link come stringa
@@ -522,7 +523,7 @@ public class Queries {
 	 * @param linkId
 	 * @return
 	 */
-	public static UserAdmin getUserAdminWithLink(String link) {
+	public synchronized static UserAdmin getUserAdminWithLink(String link) {
 
 		try {
 			final Connection c = PostgreSQLJDBC.getConnectionDb();
@@ -547,7 +548,7 @@ public class Queries {
 	 * 
 	 * @param userAdmin
 	 */
-	public static void setFirstTimeUserAdminToTrue(UserAdmin userAdmin) {
+	public synchronized static void setFirstTimeUserAdminToTrue(UserAdmin userAdmin) {
 		final Connection c = PostgreSQLJDBC.getConnectionDb();
 		Statement stmt = null;
 		try {

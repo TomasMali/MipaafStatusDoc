@@ -16,7 +16,7 @@ public class Start {
 
 		// Instantiate Telegram Bots API
 		TelegramBotsApi botsApi = new TelegramBotsApi();
-		System.out.println("Application has been started successfully!");
+		System.out.println("Application V1 has been started successfully!");
 
 		// Register our bot
 		try {

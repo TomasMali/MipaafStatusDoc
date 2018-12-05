@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dirs>
-<entry loc="C:\Program Files\Java\jdk1.8.0_191" stamp="1542383553894"/>
-<entry loc="/opt/java/jdk1.8.0_191" stamp="1538830532000"/>
-<entry loc="C:\Eclipse\RTC_5\Luna" stamp="1543936770928"/>
 <entry loc="/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home" stamp="1538841534000"/>
 <entry loc="/opt/java/jdk1.8.0_181" stamp="1537695421000"/>
+<entry loc="/opt/java/jdk1.8.0_191" stamp="1538830532000"/>
 </dirs>

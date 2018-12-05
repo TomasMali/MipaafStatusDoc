@@ -1,7 +1,7 @@
 package CallMatches;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.telegram.telegrambots.api.methods.send.SendMessage;
@@ -45,13 +45,14 @@ public class CommandsMatches {
 	public static void UserRegistration(Commands sc, Update update) {
 		if (Queries.userIdExsist(update.getMessage().getChatId())) {
 			try {
-				sc.execute(new SendMessage().setChatId(update.getMessage().getChatId()).setText("Utente già esistente"));
+				sc.execute(new SendMessage().setChatId(update.getMessage().getChatId()).setText(
+						"Utente già esistente"));
 			} catch (TelegramApiException e) {
 				e.printStackTrace();
 			}
 		} else {
 			User user = new User(update.getMessage().getChatId(), update.getMessage().getChat().getFirstName(), update
-					.getMessage().getChat().getLastName(), new Date().toString());
+					.getMessage().getChat().getLastName(), LocalDateTime.now().toString());
 			Queries.InsertUser(user);
 			try {
 				Long chat_id = update.getMessage().getChatId();
@@ -81,8 +82,8 @@ public class CommandsMatches {
 					"Adesso puoi scegliere i siti da controllare");
 			for (Links link : links) {
 				List<InlineKeyboardButton> rowInline = new ArrayList<>();
-				rowInline.add(new InlineKeyboardButton().setText(link.getDescrizione()).setCallbackData(
-						link.getDescrizione()));
+				rowInline.add(new InlineKeyboardButton().setText(link.getDescrizione()).setCallbackData(link
+						.getDescrizione()));
 				rowsInline.add(rowInline);
 
 			}
@@ -116,14 +117,12 @@ public class CommandsMatches {
 
 		InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
 		List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
-		SendMessage message2 = new SendMessage().setChatId(chat_id)
-				.setText(
-						"***Controlla il sito: '" + descriptionLink
-								+ "'  per aggiornamenti poi decidi se mandare notifiche***");
+		SendMessage message2 = new SendMessage().setChatId(chat_id).setText("***Controlla il sito: '" + descriptionLink
+				+ "'  per aggiornamenti poi decidi se mandare notifiche***");
 
 		List<InlineKeyboardButton> rowInline = new ArrayList<>();
-		rowInline.add(new InlineKeyboardButton().setText(link.getDescrizione()).setCallbackData(
-				"Attiva_" + link.getDescrizione()));
+		rowInline.add(new InlineKeyboardButton().setText(link.getDescrizione()).setCallbackData("Attiva_" + link
+				.getDescrizione()));
 		rowsInline.add(rowInline);
 
 		markupInline.setKeyboard(rowsInline);
@@ -152,7 +151,7 @@ public class CommandsMatches {
 				Queries.InsertAbilitazione(abilitazione);
 				sc.execute(new EditMessageText().setChatId(chat_id).setMessageId((int) message_id).setText(
 						"Ora riceverai notifiche ogna volta che il sito: " + update.getCallbackQuery().getData()
-								+ " verrà aggiornato"));
+								+ " verrà aggiornato \n Clickare /Start per aggiungere altri link da controllare"));
 			} else
 				sc.execute(new EditMessageText().setChatId(chat_id).setMessageId((int) message_id).setText(
 						"Sei già abilitato per ricevere notifiche da '" + update.getCallbackQuery().getData()

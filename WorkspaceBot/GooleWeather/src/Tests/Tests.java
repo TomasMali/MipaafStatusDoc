@@ -11,11 +11,13 @@ public class Tests {
 																// Guida-chiusura-campagna_v2 Wed, 02 Aug 2017 13:57:42
 																// GMT
 
-		String urlR = "https://www.sian.it/public/mipaaf/vers%204.6.zip";
+		System.out.println("Done");
+
+		String urlR = "https://www.sian.it/public/mipaaf/Matrice-schede-operazioni-controlli%202%20liv%20v4.7.zip";
 
 		URL url_1 = new URL(urlR);
 		HttpURLConnection http_1 = (HttpURLConnection) url_1.openConnection();
-		int statusCode = http_1.getResponseCode();
+
 		String dataModifica = new Date(url_1.openConnection().getLastModified()).toString();
 
 		System.out.println(dataModifica);

@@ -37,6 +37,7 @@ public class Scheduler {
 	public static ScheduledExecutorService modalita_registro_vitivinicolo_v4 = Executors.newScheduledThreadPool(1);
 	public static ScheduledExecutorService guida_chiusura_campagna_v2 = Executors.newScheduledThreadPool(1);
 	public static ScheduledExecutorService mipaafTecnicheWebService = Executors.newScheduledThreadPool(1);
+	public static ScheduledExecutorService matrice_schede_operazioni_controlli = Executors.newScheduledThreadPool(1);
 
 	public static Long mio = (long) 145645559;
 
@@ -140,168 +141,6 @@ public class Scheduler {
 			}
 
 		};
-
-		/**
-		 * Threa per far partire
-		 */
-		// Runnable taskCodificheRegistriVitivinicoli = new Runnable() {
-		// int statusCode = 000;
-		//
-		// @Override
-		// public void run() {
-		//
-		// Links link = Queries.getSingleLink("Mipaaf Codifiche Registri Vitivinicoli");
-		// String mainLink = "https://www.sian.it/portale-mipaaf/servizio?sid=1845";
-		//
-		// URL url_ = null;
-		// URL url_1 = null;
-		// String dataModifica = "";
-		//
-		// // Sito Down con codice 404
-		// try {
-		//
-		// url_ = new URL(mainLink);
-		// HttpURLConnection http = (HttpURLConnection) url_.openConnection();
-		// statusCode = http.getResponseCode();
-		//
-		// url_1 = new URL(link.getLink());
-		// HttpURLConnection http_1 = (HttpURLConnection) url_1.openConnection();
-		// statusCode = http_1.getResponseCode();
-		// dataModifica = new Date(url_1.openConnection().getLastModified()).toString();
-		// System.out.println("ULTIMA MODIFICA: " + dataModifica);
-		// if (statusCode == 404)
-		// throw new IOException();
-		//
-		// } catch (IOException ioEx) {
-		// SendMessage message = new SendMessage().setChatId(mio).setText("Il sito '" + link.getDescrizione()
-		// + "' è andato giù con codice : " + statusCode);
-		// try {
-		// mySianConnect.execute(message);
-		// CommandsMatches.createInlineKeyboardForUserSendingMessage(mySianConnect, link.getDescrizione());
-		// mipaafTecnicheWebService.shutdown();
-		// return;
-		// } catch (TelegramApiException e) {
-		// e.printStackTrace();
-		// }
-		//
-		// }
-		// // dataModifica = "Boh " + dataModifica;
-		// // Non ci sono aggiornamenti dal sito di MIPAAF
-		// if (link.getUltimamodifica().equals(dataModifica)) {
-		// // è la prima volta
-		// UserAdmin userAdmin = Queries.getUserAdminWithLink(link.getLink());
-		//
-		// boolean isFirstTime = userAdmin.isFirstTime();
-		// if (!isFirstTime) {
-		// SendMessage message = new SendMessage().setChatId(mio).setText(
-		// "Application Started !! \n Non ci sono Aggiornamenti dal sito di : " + link
-		// .getDescrizione());
-		// try {
-		// Queries.setFirstTimeUserAdminToTrue(userAdmin);
-		// mySianConnect.execute(message);
-		//
-		// } catch (TelegramApiException e) {
-		// e.printStackTrace();
-		// }
-		// }
-		//
-		// }
-		//
-		// else
-		// // Attenzione ci sono modifiche dal sito di MIPAAF
-		// // Hanno modificato solo il timestamp
-		// {
-		// Scheduler.broadcast(link.getDescrizione());
-		// // modifico prima il link con la la nuova data di modifica
-		// link.setUltimamodifica(dataModifica);
-		// Queries.updateLinkTimestamp(link);
-		// // mipaafTecnicheWebService.shutdown();
-		//
-		// }
-		//
-		// }
-		// };
-
-		/**
-		 * Threa per far partire il task Modalita_registro_vitivinicolo_v4
-		 */
-		// Runnable taskModalita_registro_vitivinicolo_v4 = new Runnable() {
-		// int statusCode = 000;
-		//
-		// @Override
-		// public void run() {
-		//
-		// Links link = Queries.getSingleLink("Modalita_registro_vitivinicolo_v4");
-		// String mainLink = "https://www.sian.it/portale-mipaaf/servizio?sid=1845";
-		//
-		// URL url_ = null;
-		// URL url_1 = null;
-		// String dataModifica = "";
-		//
-		// // Sito Down con codice 404
-		// try {
-		//
-		// url_ = new URL(mainLink);
-		// HttpURLConnection http = (HttpURLConnection) url_.openConnection();
-		// statusCode = http.getResponseCode();
-		//
-		// url_1 = new URL(link.getLink());
-		// HttpURLConnection http_1 = (HttpURLConnection) url_1.openConnection();
-		// statusCode = http_1.getResponseCode();
-		// dataModifica = new Date(url_1.openConnection().getLastModified()).toString();
-		// System.out.println("ULTIMA MODIFICA: " + dataModifica);
-		// if (statusCode == 404)
-		// throw new IOException();
-		//
-		// } catch (IOException ioEx) {
-		// SendMessage message = new SendMessage().setChatId(mio).setText("Il sito '" + link.getDescrizione()
-		// + "' è andato giù con codice : " + statusCode);
-		// try {
-		// mySianConnect.execute(message);
-		// CommandsMatches.createInlineKeyboardForUserSendingMessage(mySianConnect, link.getDescrizione());
-		// mipaafTecnicheWebService.shutdown();
-		// return;
-		// } catch (TelegramApiException e) {
-		// e.printStackTrace();
-		// }
-		//
-		// }
-		// // dataModifica = "Boh " + dataModifica;
-		// // Non ci sono aggiornamenti dal sito di MIPAAF
-		// if (link.getUltimamodifica().equals(dataModifica)) {
-		// // è la prima volta
-		// UserAdmin userAdmin = Queries.getUserAdminWithLink(link.getLink());
-		//
-		// boolean isFirstTime = userAdmin.isFirstTime();
-		// if (!isFirstTime) {
-		// SendMessage message = new SendMessage().setChatId(mio).setText(
-		// "Application Started !! \n Non ci sono Aggiornamenti dal sito di : " + link
-		// .getDescrizione());
-		// try {
-		// Queries.setFirstTimeUserAdminToTrue(userAdmin);
-		// mySianConnect.execute(message);
-		//
-		// } catch (TelegramApiException e) {
-		// e.printStackTrace();
-		// }
-		// }
-		//
-		// }
-		//
-		// else
-		// // Attenzione ci sono modifiche dal sito di MIPAAF
-		// // Hanno modificato solo il timestamp
-		// {
-		// Scheduler.broadcast(link.getDescrizione());
-		// // modifico prima il link con la la nuova data di modifica
-		// link.setUltimamodifica(dataModifica);
-		// Queries.updateLinkTimestamp(link);
-		// // mipaafTecnicheWebService.shutdown();
-		//
-		// }
-		//
-		// }
-		// };
 
 		/**
 		 * Threa per far partire il task Guida_chiusura_campagna_v2
@@ -465,15 +304,92 @@ public class Scheduler {
 			}
 		};
 
-		mipaafTecnicheWebServiceMVV.scheduleWithFixedDelay(taskMipaafTecnicheWebService, 0, 1, TimeUnit.MINUTES);
+		/**
+		 * Threa per far partire il task Guida_chiusura_campagna_v2
+		 */
+		Runnable taskMatrice_schede_operazioni_controlli = new Runnable() {
+			int statusCode = 000;
 
-		// codificheRegistriVitivinicoli.scheduleWithFixedDelay(taskCodificheRegistriVitivinicoli, 0, 1,
-		// TimeUnit.MINUTES);
+			@Override
+			public void run() {
 
-		// modalita_registro_vitivinicolo_v4.scheduleWithFixedDelay(taskModalita_registro_vitivinicolo_v4, 0, 1,
-		// TimeUnit.MINUTES);
-		guida_chiusura_campagna_v2.scheduleWithFixedDelay(taskGuida_chiusura_campagna_v2, 0, 1, TimeUnit.MINUTES);
-		mipaafTecnicheWebService.scheduleWithFixedDelay(taskMipaafTecnicheWebService, 0, 1, TimeUnit.MINUTES);
+				Links link = Queries.getSingleLink("Matrice_schede_operazioni_controlli");
+				String mainLink = "https://www.sian.it/portale-mipaaf/servizio?sid=1848";
+
+				URL url_ = null;
+				URL url_1 = null;
+				String dataModifica = "";
+
+				// Sito Down con codice 404
+				try {
+
+					url_ = new URL(mainLink);
+					HttpURLConnection http = (HttpURLConnection) url_.openConnection();
+					statusCode = http.getResponseCode();
+
+					url_1 = new URL(link.getLink());
+					HttpURLConnection http_1 = (HttpURLConnection) url_1.openConnection();
+					statusCode = http_1.getResponseCode();
+					dataModifica = new Date(url_1.openConnection().getLastModified()).toString();
+					System.out.println("ULTIMA MODIFICA: " + dataModifica);
+					if (statusCode == 404)
+						throw new IOException();
+
+				} catch (IOException ioEx) {
+					SendMessage message = new SendMessage().setChatId(mio).setText("Il sito '" + link.getDescrizione()
+							+ "' è andato giù con codice : " + statusCode);
+					try {
+						mySianConnect.execute(message);
+						CommandsMatches.createInlineKeyboardForUserSendingMessage(mySianConnect, link.getDescrizione());
+						mipaafTecnicheWebServiceMVV.shutdown();
+						return;
+					} catch (TelegramApiException e) {
+						e.printStackTrace();
+					}
+
+				}
+				// dataModifica = "Boh " + dataModifica;
+				// Non ci sono aggiornamenti dal sito di MIPAAF
+				if (link.getUltimamodifica().equals(dataModifica)) {
+					// è la prima volta
+					UserAdmin userAdmin = Queries.getUserAdminWithLink(link.getLink());
+
+					boolean isFirstTime = userAdmin.isFirstTime();
+					if (!isFirstTime) {
+						SendMessage message = new SendMessage().setChatId(mio).setText(
+								"Application Started !! \n Non ci sono Aggiornamenti dal sito di : " + link
+										.getDescrizione());
+						try {
+							Queries.setFirstTimeUserAdminToTrue(userAdmin);
+							mySianConnect.execute(message);
+
+						} catch (TelegramApiException e) {
+							e.printStackTrace();
+						}
+					}
+
+				}
+
+				else
+				// Attenzione ci sono modifiche dal sito di MIPAAF
+				// Hanno modificato solo il timestamp
+				{
+					Scheduler.broadcast(link.getDescrizione());
+					// modifico prima il link con la la nuova data di modifica
+					link.setUltimamodifica(dataModifica);
+					Queries.updateLinkTimestamp(link);
+					// mipaafTecnicheWebService.shutdown();
+
+				}
+
+			}
+		};
+
+		mipaafTecnicheWebServiceMVV.scheduleWithFixedDelay(taskMipaafTecnicheWebServiceMVV, 0, 20, TimeUnit.MINUTES);
+		guida_chiusura_campagna_v2.scheduleWithFixedDelay(taskGuida_chiusura_campagna_v2, 0, 20, TimeUnit.MINUTES);
+		mipaafTecnicheWebService.scheduleWithFixedDelay(taskMipaafTecnicheWebService, 0, 20, TimeUnit.MINUTES);
+		matrice_schede_operazioni_controlli.scheduleWithFixedDelay(taskMatrice_schede_operazioni_controlli, 0, 20,
+				TimeUnit.MINUTES);
 	}
 
 	/**
