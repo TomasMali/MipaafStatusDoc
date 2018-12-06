@@ -60,12 +60,13 @@
 		<item value="400" key="height"/>
 	</section>
 	<section name="FatJarPackageWizard">
-		<item value="/home/tomas/Scrivania/MipaafStatusDoc/WorkspaceBot" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
+		<item value="/home/tomas/Scrivania/MipaafStatusDoc/WorkspaceBot.xml" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
 		<item value="Start - GooleWeather" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="/home/tomas/Scrivania/MipaafSianRunnableJarOnly/MipaafSianV2.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="/home/tommal/Desktop/MipaafSianRunnableJarOnly/MipaafSianV3.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="/home/tommal/Desktop/MipaafSianRunnableJarOnly/MipaafSianV3.jar"/>
 			<item value="/home/tomas/Scrivania/MipaafSianRunnableJarOnly/MipaafSianV2.jar"/>
 			<item value="/home/tomas/Scrivania/MipaafSianRunnableJarOnly/MipaafSianV1.jar"/>
 			<item value="/home/tomas/Scrivania/MipaafStatusDoc/MipaafSianV1.jar"/>

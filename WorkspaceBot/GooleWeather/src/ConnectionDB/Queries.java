@@ -13,7 +13,7 @@ import DAO.UserAdmin;
 
 public class Queries {
 
-	private static Statement stmt = null;
+	// public static Statement stmt = null;
 
 	/**
 	 * setta il thread started a true
@@ -50,17 +50,17 @@ public class Queries {
 	 */
 	public synchronized static List<User> getUsers() {
 		List<User> users = new ArrayList<>();
-		try {
-			final Connection c = PostgreSQLJDBC.getConnectionDb();
-			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM USERS");
+		try (final Connection c = PostgreSQLJDBC.getConnectionDb();
+				Statement stmt = c.createStatement();
+				ResultSet rs = stmt.executeQuery("SELECT * FROM USERS");) {
+
 			while (rs.next()) {
 				users.add(new User(rs.getLong("userid"), rs.getString("nome"), rs.getString("cognome"), rs.getString(
 						"inserimento")));
 			}
-			rs.close();
-			stmt.close();
-			c.close();
+			// rs.close();
+			// stmt.close();
+			// c.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
@@ -105,15 +105,14 @@ public class Queries {
 	 */
 	public synchronized static boolean userIdExsist(Long userId) {
 		boolean trovato = false;
-		try {
-			final Connection c = PostgreSQLJDBC.getConnectionDb();
-			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM public.users where users.userid= " + userId);
+		try (final Connection c = PostgreSQLJDBC.getConnectionDb();
+				Statement stmt = c.createStatement();
+				ResultSet rs = stmt.executeQuery("SELECT * FROM public.users where users.userid= " + userId);) {
 			if (rs.next())
 				trovato = true;
-			rs.close();
-			stmt.close();
-			c.close();
+			// rs.close();
+			// stmt.close();
+			// c.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
@@ -133,18 +132,19 @@ public class Queries {
 	public synchronized static List<Abilitazione> GetUserIdWithProjectAndDescription(String progetto,
 			String descrizione) {
 		List<Abilitazione> usersId = new ArrayList<>();
-		try {
-			final Connection c = PostgreSQLJDBC.getConnectionDb();
-			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery(
-					" select abilitazione.userid,abilitazione.link,abilitazione.started  from abilitazione join links on abilitazione.link=links.id\n"
-							+ "and links.descrizione= '" + descrizione + "' and links.progetto= '" + progetto + "' ");
+		try (final Connection c = PostgreSQLJDBC.getConnectionDb();
+				Statement stmt = c.createStatement();
+				ResultSet rs = stmt.executeQuery(
+						" select abilitazione.userid,abilitazione.link,abilitazione.started  from abilitazione join links on abilitazione.link=links.id\n"
+								+ "and links.descrizione= '" + descrizione + "' and links.progetto= '" + progetto
+								+ "' ");) {
+
 			while (rs.next()) {
 				usersId.add(new Abilitazione(rs.getLong(1), rs.getLong(2), rs.getBoolean(3)));
 			}
-			rs.close();
-			stmt.close();
-			c.close();
+			// rs.close();
+			// stmt.close();
+			// c.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
@@ -211,15 +211,12 @@ public class Queries {
 	 * @param user
 	 */
 	public synchronized static void InsertUser(User user) {
-		final Connection c = PostgreSQLJDBC.getConnectionDb();
-		Statement stmt = null;
-		try {
-			stmt = c.createStatement();
-			String sql = "INSERT INTO public.users(userid, nome, cognome, inserimento) VALUES( " + user.getUserID()
-					+ ", '" + user.getNome() + "', '" + user.getCognome() + "' ,'" + user.getInserimento() + "')";
+		String sql = "INSERT INTO public.users(userid, nome, cognome, inserimento) VALUES( " + user.getUserID() + ", '"
+				+ user.getNome() + "', '" + user.getCognome() + "' ,'" + user.getInserimento() + "')";
+		try (final Connection c = PostgreSQLJDBC.getConnectionDb(); Statement stmt = c.createStatement();) {
 			stmt.executeUpdate(sql);
-			stmt.close();
-			c.close();
+			// stmt.close();
+			// c.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
@@ -234,14 +231,14 @@ public class Queries {
 	 */
 	public synchronized static void InsertAbilitazione(Abilitazione abilitazione) {
 		final Connection c = PostgreSQLJDBC.getConnectionDb();
-		Statement stmt = null;
+
 		try {
-			stmt = c.createStatement();
+			Statement stmt = c.createStatement();
 			String sql = "INSERT INTO public.abilitazione\n" + "(userid, link)\n" + "VALUES( " + abilitazione
 					.getUserid() + ", " + abilitazione.getLink() + ")";
 			stmt.executeUpdate(sql);
-			stmt.close();
-			c.close();
+			// stmt.close();
+			// c.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
@@ -257,16 +254,16 @@ public class Queries {
 	 */
 	public synchronized static boolean CheckIfExsistLink(Abilitazione abilitazione) {
 		boolean exists = false;
-		try {
-			final Connection c = PostgreSQLJDBC.getConnectionDb();
-			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery(" SELECT userid\n" + "FROM public.abilitazione\n" + "WHERE userid= "
-					+ abilitazione.getUserid() + " AND link= " + abilitazione.getLink());
+		try (final Connection c = PostgreSQLJDBC.getConnectionDb();
+				Statement stmt = c.createStatement();
+				ResultSet rs = stmt.executeQuery(" SELECT userid\n" + "FROM public.abilitazione\n" + "WHERE userid= "
+						+ abilitazione.getUserid() + " AND link= " + abilitazione.getLink());) {
+
 			if (rs.next())
 				exists = true;
-			rs.close();
-			stmt.close();
-			c.close();
+			// rs.close();
+			// stmt.close();
+			// c.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
@@ -308,16 +305,16 @@ public class Queries {
 	 */
 	public synchronized static List<Links> getAllLinks() {
 		List<Links> links = new ArrayList<>();
-		try {
-			final Connection c = PostgreSQLJDBC.getConnectionDb();
-			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery(
-					"SELECT id, descrizione, link, ultimamodifica, progetto FROM public.links");
+		try (final Connection c = PostgreSQLJDBC.getConnectionDb();
+				Statement stmt = c.createStatement();
+				ResultSet rs = stmt.executeQuery(
+						"SELECT id, descrizione, link, ultimamodifica, progetto FROM public.links");) {
+
 			while (rs.next())
 				links.add(new Links(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
-			rs.close();
-			stmt.close();
-			c.close();
+			// rs.close();
+			// stmt.close();
+			// c.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
@@ -330,18 +327,16 @@ public class Queries {
 
 		List<Links> links = new ArrayList<>();
 
-		try {
-			final Connection c = PostgreSQLJDBC.getConnectionDb();
-			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery(
-					"select * from links where links.id NOT IN (SELECT links.id from links  join public.abilitazione on links.id = abilitazione.link and abilitazione.userid ="
-							+ idTelegram + ")");
-
+		try (final Connection c = PostgreSQLJDBC.getConnectionDb();
+				Statement stmt = c.createStatement();
+				ResultSet rs = stmt.executeQuery(
+						"select * from links where links.id NOT IN (SELECT links.id from links  join public.abilitazione on links.id = abilitazione.link and abilitazione.userid ="
+								+ idTelegram + ")");) {
 			while (rs.next())
 				links.add(new Links(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
-			rs.close();
-			stmt.close();
-			c.close();
+			// rs.close();
+			// stmt.close();
+			// c.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
@@ -359,17 +354,17 @@ public class Queries {
 	 */
 	public synchronized static Links getSingleLink(String descrizione) {
 
-		try {
-			final Connection c = PostgreSQLJDBC.getConnectionDb();
-			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT *\n" + "		FROM public.links\n"
-					+ "		where descrizione = '" + descrizione + "'");
+		try (final Connection c = PostgreSQLJDBC.getConnectionDb();
+				Statement stmt = c.createStatement();
+				ResultSet rs = stmt.executeQuery("SELECT *\n" + "		FROM public.links\n"
+						+ "		where descrizione = '" + descrizione + "'");) {
+
 			while (rs.next()) {
 				return new Links(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 			}
-			rs.close();
-			stmt.close();
-			c.close();
+			// rs.close();
+			// stmt.close();
+			// c.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
@@ -392,8 +387,8 @@ public class Queries {
 					.getLink() + "' , ultimamodifica= '" + link.getUltimamodifica() + "', progetto= '" + link
 							.getProgetto() + "'" + "  WHERE id=" + link.getId();
 			stmt.executeUpdate(sql);
-			stmt.close();
-			c.close();
+			// stmt.close();
+			// c.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
@@ -409,16 +404,16 @@ public class Queries {
 	 */
 	public synchronized static Long getLinkId(String descrizioneLink) {
 		Long res = null;
-		try {
-			final Connection c = PostgreSQLJDBC.getConnectionDb();
-			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT id FROM public.links where links.descrizione= '" + descrizioneLink
-					+ "'");
+		try (final Connection c = PostgreSQLJDBC.getConnectionDb();
+				Statement stmt = c.createStatement();
+				ResultSet rs = stmt.executeQuery("SELECT id FROM public.links where links.descrizione= '"
+						+ descrizioneLink + "'");) {
+
 			while (rs.next())
 				res = rs.getLong(1);
-			rs.close();
-			stmt.close();
-			c.close();
+			// rs.close();
+			// stmt.close();
+			// c.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
@@ -440,8 +435,8 @@ public class Queries {
 			stmt = c.createStatement();
 			String sql = "DELETE FROM public.adminuser";
 			stmt.executeUpdate(sql);
-			stmt.close();
-			c.close();
+			// stmt.close();
+			// c.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
@@ -474,8 +469,8 @@ public class Queries {
 
 			if (!links.isEmpty())
 				stmt.executeUpdate(sql.toString());
-			stmt.close();
-			c.close();
+			// stmt.close();
+			// c.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
@@ -525,10 +520,10 @@ public class Queries {
 	 */
 	public synchronized static UserAdmin getUserAdminWithLink(String link) {
 
-		try {
-			final Connection c = PostgreSQLJDBC.getConnectionDb();
-			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery(" SELECT *\n" + "		FROM public.adminuser where  link= '" + link + "'");
+		try (final Connection c = PostgreSQLJDBC.getConnectionDb();
+				Statement stmt = c.createStatement();
+				ResultSet rs = stmt.executeQuery(" SELECT *\n" + "		FROM public.adminuser where  link= '" + link
+						+ "'");) {
 			while (rs.next()) {
 				return new UserAdmin(rs.getLong(1), rs.getString(2), rs.getBoolean(3));
 			}
@@ -549,16 +544,13 @@ public class Queries {
 	 * @param userAdmin
 	 */
 	public synchronized static void setFirstTimeUserAdminToTrue(UserAdmin userAdmin) {
-		final Connection c = PostgreSQLJDBC.getConnectionDb();
-		Statement stmt = null;
-		try {
+		String sql = "UPDATE public.adminuser\n" + "SET firsttime=true\n" + "WHERE idtelegram= " + userAdmin.getUserID()
+				+ " AND link= '" + userAdmin.getLink() + "'";
 
-			stmt = c.createStatement();
-			String sql = "UPDATE public.adminuser\n" + "SET firsttime=true\n" + "WHERE idtelegram= " + userAdmin
-					.getUserID() + " AND link= '" + userAdmin.getLink() + "'";
+		try (final Connection c = PostgreSQLJDBC.getConnectionDb(); Statement stmt = c.createStatement();) {
 			stmt.executeUpdate(sql);
-			stmt.close();
-			c.close();
+			// stmt.close();
+			// c.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
