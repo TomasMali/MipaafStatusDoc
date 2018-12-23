@@ -3,6 +3,9 @@ package Schedulers;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -130,12 +133,14 @@ public class Scheduler {
 				// Attenzione ci sono modifiche dal sito di MIPAAF
 				// Hanno fatto modifiche sullo stesso URL
 				{
-					Scheduler.broadcast(link.getDescrizione());
-					// modifico prima il link con la la nuova data di modifica
-					link.setUltimamodifica(dataModifica);
-					Queries.updateLinkTimestamp(link);
-					// mipaafTecnicheWebService.shutdown();
+					if (isTimeBetween()) {
+						Scheduler.broadcast(link.getDescrizione());
+						// modifico prima il link con la la nuova data di modifica
+						link.setUltimamodifica(dataModifica);
+						Queries.updateLinkTimestamp(link);
+						// mipaafTecnicheWebService.shutdown();
 
+					}
 				}
 
 			}
@@ -212,12 +217,13 @@ public class Scheduler {
 				// Attenzione ci sono modifiche dal sito di MIPAAF
 				// Hanno modificato solo il timestamp
 				{
-					Scheduler.broadcast(link.getDescrizione());
-					// modifico prima il link con la la nuova data di modifica
-					link.setUltimamodifica(dataModifica);
-					Queries.updateLinkTimestamp(link);
-					// mipaafTecnicheWebService.shutdown();
-
+					if (isTimeBetween()) {
+						Scheduler.broadcast(link.getDescrizione());
+						// modifico prima il link con la la nuova data di modifica
+						link.setUltimamodifica(dataModifica);
+						Queries.updateLinkTimestamp(link);
+						// mipaafTecnicheWebService.shutdown();
+					}
 				}
 
 			}
@@ -293,12 +299,13 @@ public class Scheduler {
 				// Attenzione ci sono modifiche dal sito di MIPAAF
 				// Hanno modificato solo il timestamp
 				{
-					Scheduler.broadcast(link.getDescrizione());
-					// modifico prima il link con la la nuova data di modifica
-					link.setUltimamodifica(dataModifica);
-					Queries.updateLinkTimestamp(link);
-					// mipaafTecnicheWebService.shutdown();
-
+					if (isTimeBetween()) {
+						Scheduler.broadcast(link.getDescrizione());
+						// modifico prima il link con la la nuova data di modifica
+						link.setUltimamodifica(dataModifica);
+						Queries.updateLinkTimestamp(link);
+						// mipaafTecnicheWebService.shutdown();
+					}
 				}
 
 			}
@@ -374,12 +381,13 @@ public class Scheduler {
 				// Attenzione ci sono modifiche dal sito di MIPAAF
 				// Hanno modificato solo il timestamp
 				{
-					Scheduler.broadcast(link.getDescrizione());
-					// modifico prima il link con la la nuova data di modifica
-					link.setUltimamodifica(dataModifica);
-					Queries.updateLinkTimestamp(link);
-					// mipaafTecnicheWebService.shutdown();
-
+					if (isTimeBetween()) {
+						Scheduler.broadcast(link.getDescrizione());
+						// modifico prima il link con la la nuova data di modifica
+						link.setUltimamodifica(dataModifica);
+						Queries.updateLinkTimestamp(link);
+						// mipaafTecnicheWebService.shutdown();
+					}
 				}
 
 			}
@@ -412,4 +420,44 @@ public class Scheduler {
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * Ritorna true se il tempo si trova tra i 2 specificati
+	 * 
+	 * @return
+	 */
+	public static boolean isTimeBetween() {
+		try {
+			Calendar cal = Calendar.getInstance();
+			SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+
+			String string1 = "09:40:00";
+			Date time1 = new SimpleDateFormat("HH:mm:ss").parse(string1);
+			Calendar calendar1 = Calendar.getInstance();
+			calendar1.setTime(time1);
+
+			String string2 = "20:00:00";
+			Date time2 = new SimpleDateFormat("HH:mm:ss").parse(string2);
+			Calendar calendar2 = Calendar.getInstance();
+			calendar2.setTime(time2);
+			calendar2.add(Calendar.DATE, 1);
+
+			String someRandomTime = sdf.format(cal.getTime());
+			Date d = new SimpleDateFormat("HH:mm:ss").parse(someRandomTime);
+			Calendar calendar3 = Calendar.getInstance();
+			calendar3.setTime(d);
+			calendar3.add(Calendar.DATE, 1);
+
+			Date x = calendar3.getTime();
+			if (x.after(calendar1.getTime()) && x.before(calendar2.getTime()))
+				return true;
+			else
+				return false;
+
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
 }
