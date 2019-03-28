@@ -6,6 +6,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 import ConnectionDB.Queries;
+import DAO.Links;
 import Schedulers.Scheduler;
 
 public class Commands extends TelegramLongPollingBot {
@@ -81,7 +82,7 @@ public class Commands extends TelegramLongPollingBot {
 	public void HasCallbackQuery(Update update) {
 
 		if (update.getCallbackQuery().getData().contains("Attiva_"))
-			Scheduler.broadcast(update.getCallbackQuery().getData().substring(7));
+			Scheduler.broadcast(new Links(0, null, update.getCallbackQuery().getData().substring(7), "", ""));
 		else
 			// keyboard per abilitarsi nei links
 			CommandsMatches.createAbilitazione(this, update, Queries.getLinkId(update.getCallbackQuery().getData()));

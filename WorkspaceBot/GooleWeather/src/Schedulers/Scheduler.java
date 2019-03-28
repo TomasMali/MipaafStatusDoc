@@ -42,7 +42,12 @@ public class Scheduler {
 	public static ScheduledExecutorService mipaafTecnicheWebService = Executors.newScheduledThreadPool(1);
 	public static ScheduledExecutorService matrice_schede_operazioni_controlli = Executors.newScheduledThreadPool(1);
 
+	static String attention = "\u26a0\ufe0f";
+	static String ok_check = "\u2714\ufe0f";
+
 	public static Long mio = (long) 145645559;
+	private static String icon_link = "\ud83d\udcce";
+	private static String icon_clock = "\u231a\ufe0f";
 
 	public Scheduler(Commands instance) {
 		mySianConnect = instance;
@@ -115,8 +120,9 @@ public class Scheduler {
 
 					boolean isFirstTime = userAdmin.isFirstTime();
 					if (!isFirstTime) {
-						SendMessage message = new SendMessage().setChatId(mio).setText(
-								"Application Started !! \n Non ci sono Aggiornamenti dal sito di : " + link
+
+						SendMessage message = new SendMessage().setChatId(mio).setText(ok_check
+								+ " Application Started !! \n Non ci sono Aggiornamenti dal sito di : " + link
 										.getDescrizione());
 						try {
 							Queries.setFirstTimeUserAdminToTrue(userAdmin);
@@ -134,7 +140,7 @@ public class Scheduler {
 				// Hanno fatto modifiche sullo stesso URL
 				{
 					if (isTimeBetween()) {
-						Scheduler.broadcast(link.getDescrizione());
+						Scheduler.broadcast(link);
 						// modifico prima il link con la la nuova data di modifica
 						link.setUltimamodifica(dataModifica);
 						Queries.updateLinkTimestamp(link);
@@ -199,8 +205,8 @@ public class Scheduler {
 
 					boolean isFirstTime = userAdmin.isFirstTime();
 					if (!isFirstTime) {
-						SendMessage message = new SendMessage().setChatId(mio).setText(
-								"Application Started !! \n Non ci sono Aggiornamenti dal sito di : " + link
+						SendMessage message = new SendMessage().setChatId(mio).setText(ok_check
+								+ "Application Started !! \n Non ci sono Aggiornamenti dal sito di : " + link
 										.getDescrizione());
 						try {
 							Queries.setFirstTimeUserAdminToTrue(userAdmin);
@@ -218,7 +224,7 @@ public class Scheduler {
 				// Hanno modificato solo il timestamp
 				{
 					if (isTimeBetween()) {
-						Scheduler.broadcast(link.getDescrizione());
+						Scheduler.broadcast(link);
 						// modifico prima il link con la la nuova data di modifica
 						link.setUltimamodifica(dataModifica);
 						Queries.updateLinkTimestamp(link);
@@ -281,8 +287,8 @@ public class Scheduler {
 
 					boolean isFirstTime = userAdmin.isFirstTime();
 					if (!isFirstTime) {
-						SendMessage message = new SendMessage().setChatId(mio).setText(
-								"Application Started !! \n Non ci sono Aggiornamenti dal sito di : " + link
+						SendMessage message = new SendMessage().setChatId(mio).setText(ok_check
+								+ "Application Started !! \n Non ci sono Aggiornamenti dal sito di : " + link
 										.getDescrizione());
 						try {
 							Queries.setFirstTimeUserAdminToTrue(userAdmin);
@@ -300,7 +306,7 @@ public class Scheduler {
 				// Hanno modificato solo il timestamp
 				{
 					if (isTimeBetween()) {
-						Scheduler.broadcast(link.getDescrizione());
+						Scheduler.broadcast(link);
 						// modifico prima il link con la la nuova data di modifica
 						link.setUltimamodifica(dataModifica);
 						Queries.updateLinkTimestamp(link);
@@ -363,8 +369,8 @@ public class Scheduler {
 
 					boolean isFirstTime = userAdmin.isFirstTime();
 					if (!isFirstTime) {
-						SendMessage message = new SendMessage().setChatId(mio).setText(
-								"Application Started !! \n Non ci sono Aggiornamenti dal sito di : " + link
+						SendMessage message = new SendMessage().setChatId(mio).setText(ok_check
+								+ "Application Started !! \n Non ci sono Aggiornamenti dal sito di : " + link
 										.getDescrizione());
 						try {
 							Queries.setFirstTimeUserAdminToTrue(userAdmin);
@@ -382,7 +388,7 @@ public class Scheduler {
 				// Hanno modificato solo il timestamp
 				{
 					if (isTimeBetween()) {
-						Scheduler.broadcast(link.getDescrizione());
+						Scheduler.broadcast(link);
 						// modifico prima il link con la la nuova data di modifica
 						link.setUltimamodifica(dataModifica);
 						Queries.updateLinkTimestamp(link);
@@ -405,15 +411,17 @@ public class Scheduler {
 	 * 
 	 * @param descrizioneLink
 	 */
-	public static void broadcast(String descrizioneLink) {
+	public static void broadcast(Links link) {
 
-		List<Abilitazione> listAbilitations = Queries.GetUserIdWithProjectAndDescription("Sian", descrizioneLink);
+		List<Abilitazione> listAbilitations = Queries.GetUserIdWithProjectAndDescription("Sian", link.getDescrizione());
 
 		try {
+
 			for (Abilitazione ab : listAbilitations) {
-				SendMessage message = new SendMessage().setChatId(ab.getUserid()).setText(
-						"Attenzione ci sono aggiornamenti dal sito di: " + descrizioneLink + "\n"
-								+ " Ultima modifica rilevata : " + new java.util.Date().toGMTString());
+
+				SendMessage message = new SendMessage().setChatId(ab.getUserid()).setText(attention
+						+ " Attenzione ci sono aggiornamenti dal sito di: " + link.getDescrizione() + "\n" + icon_clock
+						+ " Ultima modifica rilevata : " + new java.util.Date() + "\n" + icon_link + link.getLink());
 				mySianConnect.execute(message);
 			}
 		} catch (TelegramApiException e) {
